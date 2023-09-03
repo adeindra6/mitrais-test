@@ -18,3 +18,7 @@ def usersRoute():
         response = users.storeUser(userJson)
 
         return response
+    elif request.method == "GET":
+        usersData = users.fetchUsers()
+
+        return usersData

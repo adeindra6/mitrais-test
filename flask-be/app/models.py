@@ -13,4 +13,4 @@ class Users(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return "<User {}>".format(self.name)
+        return "<User {}>".format(self)

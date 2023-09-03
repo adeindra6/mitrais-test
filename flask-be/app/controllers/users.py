@@ -8,7 +8,6 @@ def storeUser(userJson):
     date_of_birth = userJson["date_of_birth"]
     gender = userJson["gender"]
     email = userJson["email"]
-    print(mobile_number)
 
     users = models.Users(
         mobile_number=mobile_number,
@@ -35,3 +34,22 @@ def storeUser(userJson):
     }
 
     return response
+
+def fetchUsers():
+    users = models.Users.query.all()
+
+    listUsers = []
+    for u in users:
+        listUsers.append({
+            "id": u.id,
+            "mobile_number": u.mobile_number,
+            "first_name": u.first_name,
+            "last_name": u.last_name,
+            "date_of_birth": u.date_of_birth,
+            "gender": u.gender,
+            "email": u.email,
+            "created_at": u.created_at,
+            "updated_at": u.updated_at,
+        })
+
+    return listUsers
